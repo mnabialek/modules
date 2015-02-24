@@ -1,9 +1,8 @@
-<?php
-namespace {{namespace}}{{moduleName}}\Http\Requests;
+<?php namespace {{namespace}}{{moduleName}}\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Request;
 
-class {{className}} extends FormRequest
+class {{className}} extends Request
 {
 	/**
 	 * Get the validation rules that apply to the request.
@@ -12,18 +11,39 @@ class {{className}} extends FormRequest
 	 */
 	public function rules()
 	{
-		return [
-			//
-		];
+	    $rules = $this->getRules();
+
+		return $rules;
 	}
 
-	/**
-	 * Determine if the user is authorized to make this request.
-	 *
-	 * @return bool
-	 */
-	public function authorize()
-	{
-		return false;
-	}
+    /**
+     * Get basic validation rules
+     *
+     * @return array
+     */
+    public function getRules()
+    {
+        return [
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getFormatterRules() {
+        return [
+        ];
+    }
+
+    /**
+     * Get the input that should be fed to the validator.
+     *
+     * @return array
+     */
+    protected function formatInput()
+    {
+        $data = $this->all();
+
+        return $data;
+    }
 }

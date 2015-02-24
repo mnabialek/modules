@@ -1,8 +1,8 @@
-<?php
-namespace {{namespace}}{{name}}\Database\Seeds;
+<?php namespace {{namespace}}{{name}}\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use App\Core\Rbac\Permission;
 
 class {{name}}DatabaseSeeder extends Seeder {
 
@@ -15,7 +15,18 @@ class {{name}}DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		// $this->call('{{namespace}}{{name}}\Database\Seeds\FoobarTableSeeder');
-	}
+        $list = [
+            '{{smallname}}.index' => '{{name}} index',
+            '{{smallname}}.show' => '{{name}} show',
+            '{{smallname}}.store' => '{{name}} store',
+            '{{smallname}}.update' => '{{name}} update',
+            '{{smallname}}.destroy' => '{{name}} destroy',
+        ];
 
+        $result = Permission::set('{{smallname}}', $list);
+
+        foreach ($result as $info) {
+            $this->command->info($info);
+        }
+	}
 }
