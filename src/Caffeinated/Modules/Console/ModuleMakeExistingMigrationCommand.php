@@ -1,7 +1,7 @@
 <?php
 namespace Caffeinated\Modules\Console;
 
-use Caffeinated\Modules\Handlers\ModuleMakeMigrationHandler;
+use Caffeinated\Modules\Handlers\ModuleMakeExistingMigrationHandler;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -27,7 +27,7 @@ class ModuleMakeExistingMigrationCommand extends Command
 	 *
 	 * @param \Caffeinated\Modules\Handlers\ModuleMakeMigrationHandler $handler
 	 */
-	public function __construct(ModuleMakeMigrationHandler $handler)
+	public function __construct(ModuleMakeExistingMigrationHandler $handler)
 	{
 		parent::__construct();
 
