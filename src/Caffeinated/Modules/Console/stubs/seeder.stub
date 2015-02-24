@@ -16,10 +16,10 @@ class {{name}}DatabaseSeeder extends Seeder {
 		Model::unguard();
 
         $list = [
-            '{{smallname}}.index' => '{{name}} index',
-            '{{smallname}}.show' => '{{name}} show',
-            '{{smallname}}.store' => '{{name}} store',
-            '{{smallname}}.update' => '{{name}} update',
+            '{{smallname}}.index'   => '{{name}} index',
+            '{{smallname}}.show'    => '{{name}} show',
+            '{{smallname}}.store'   => '{{name}} store',
+            '{{smallname}}.update'  => '{{name}} update',
             '{{smallname}}.destroy' => '{{name}} destroy',
         ];
 

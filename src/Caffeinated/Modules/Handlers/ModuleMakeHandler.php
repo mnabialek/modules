@@ -30,6 +30,8 @@ class ModuleMakeHandler
             //'Resources/',
             //'Resources/Lang/',
             //'Resources/Views/',
+            'Models/',
+            'Repositories/',
         ];
 
     /**
@@ -107,7 +109,7 @@ class ModuleMakeHandler
     public function fire(Command $console, $slug)
     {
         $this->console = $console;
-        $this->slug = $slug;
+        $this->slug = strtolower($slug);
         $this->name = Str::studly($slug);
 
         if ($this->module->exists($this->slug)) {
@@ -265,7 +267,7 @@ class ModuleMakeHandler
             [
                 $this->slug,
                 $this->name,
-                $this->modules->getNamespace(),
+                $this->module->getNamespace(),
                 strtolower($this->name),
                 $this->name . 'Request',
                 $this->name,

@@ -2,9 +2,6 @@
 namespace {{namespace}}{{name}}\Providers;
 
 use App;
-use Config;
-use Lang;
-use View;
 use Illuminate\Support\ServiceProvider;
 
 class {{name}}ServiceProvider extends ServiceProvider

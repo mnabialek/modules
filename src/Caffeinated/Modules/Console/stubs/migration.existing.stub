@@ -14,14 +14,9 @@ class {{migrationName}} extends Migration
 	{
         if (!Schema::hasTable('{{table}}')) {
 			Schema::create('{{table}}', function(Blueprint $table) {
-
+			   $table->increments('');
 			});
 		}
-        if (!Schema::hasTable('{{table}}')) {
-            Schema::create('{{table}}', function (Blueprint $table) {
-                $table->increments('');
-            });
-        }
 
         $columns = Schema::getColumnListing('{{table}}');
 
@@ -29,10 +24,11 @@ class {{migrationName}} extends Migration
             function (Blueprint $table) use ($columns) {
 
                 if (!in_array('', $columns)) {
+                   $table->increments('');
+                }
+                if (!in_array('', $columns)) {
 
                 }
-
-
 
                 // new columns (if any)
 

@@ -42,7 +42,7 @@ class {{name}}Controller extends Controller
     public function index(Config $config)
     {
         $this->checkPermissions(['{{smallname}}.index']);
-        $onPage = $config->get('modules.{{smallname}}.pagination');
+        $onPage = $config->get('system_settings.{{smallname}}_pagination');
         $list = $this->{{smallname}}Repository->paginate($onPage);
 
         return response()->json($list);
