@@ -184,9 +184,8 @@ class ModuleMakeHandler
         $module_path = $this->getModulePath($this->slug);
 
         foreach ($this->folders as $folder) {
-            if (empty($this->finder->files($folder))
-                && empty($this->finder->files($folder))
-            ) {
+            $files = $this->finder->files($folder);
+            if (empty($files)) {
                 $this->finder->put($module_path . $folder . '.gitkeep', '');
             }
         }
