@@ -67,7 +67,7 @@ class ModuleMakeExistingMigrationHandler
     {
         $this->console = $console;
         $this->moduleName = Str::studly($slug);
-        $this->table = strtolower($table);
+        $this->table = strtolower(snake_case($table));
         $this->migrationName = 'create_' . snake_case($this->table) . '_table';
         $this->className = studly_case($this->migrationName);
 

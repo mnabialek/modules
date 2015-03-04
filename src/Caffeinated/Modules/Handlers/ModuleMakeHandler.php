@@ -259,6 +259,7 @@ class ModuleMakeHandler
                 '{{name}}',
                 '{{namespace}}',
                 '{{smallname}}',
+                '{{smallnameCamel}}',
                 '{{smallnameSnake}}',
                 '{{className}}',
                 '{{moduleName}}',
@@ -270,6 +271,7 @@ class ModuleMakeHandler
                 $this->module->getNamespace(),
                 strtolower($this->name),
                 lcfirst($this->name),
+                snake_case($this->name),
                 $this->name . 'Request',
                 $this->name,
                 snake_case($this->name)
