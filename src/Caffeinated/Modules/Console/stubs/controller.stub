@@ -19,17 +19,17 @@ class {{name}}Controller extends Controller
      *
      * @var {{name}}Repository
      */
-    private ${{smallname}}Repository;
+    private ${{smallnameSnake}}Repository;
 
     /**
      * Set repository and apply auth filter
      *
-     * @param {{name}}Repository ${{smallname}}Repository
+     * @param {{name}}Repository ${{smallnameSnake}}Repository
      */
-    public function __construct({{name}}Repository ${{smallname}}Repository)
+    public function __construct({{name}}Repository ${{smallnameSnake}}Repository)
     {
         $this->middleware('auth');
-        $this->{{smallname}}Repository = ${{smallname}}Repository;
+        $this->{{smallnameSnake}}Repository = ${{smallnameSnake}}Repository;
     }
 
     /**
@@ -43,7 +43,7 @@ class {{name}}Controller extends Controller
     {
         $this->checkPermissions(['{{smallname}}.index']);
         $onPage = $config->get('system_settings.{{smallname}}_pagination');
-        $list = $this->{{smallname}}Repository->paginate($onPage);
+        $list = $this->{{smallnameSnake}}Repository->paginate($onPage);
 
         return response()->json($list);
     }
@@ -60,7 +60,7 @@ class {{name}}Controller extends Controller
         $this->checkPermissions(['{{smallname}}.show']);
         $id = (int) $id;
 
-        return response()->json($this->{{smallname}}Repository->show($id));
+        return response()->json($this->{{smallnameSnake}}Repository->show($id));
     }
 
     /**
@@ -71,7 +71,7 @@ class {{name}}Controller extends Controller
     public function create()
     {
         $this->checkPermissions(['{{smallname}}.store']);
-        $rules['fields'] = $this->{{smallname}}Repository->getRequestRules();
+        $rules['fields'] = $this->{{smallnameSnake}}Repository->getRequestRules();
 
         return response()->json($rules);
     }
@@ -87,7 +87,7 @@ class {{name}}Controller extends Controller
     public function store({{name}}Request $request)
     {
         $this->checkPermissions(['{{smallname}}.store']);
-        $model = $this->{{smallname}}Repository->create($request->all());
+        $model = $this->{{smallnameSnake}}Repository->create($request->all());
 
         return response()->json(['item' => $model], 201);
     }
@@ -104,7 +104,7 @@ class {{name}}Controller extends Controller
         $this->checkPermissions(['{{smallname}}.update']);
         $id = (int) $id;
 
-        return response()->json($this->{{smallname}}Repository->show($id, true));
+        return response()->json($this->{{smallnameSnake}}Repository->show($id, true));
     }
 
     /**
@@ -120,7 +120,7 @@ class {{name}}Controller extends Controller
         $this->checkPermissions(['{{smallname}}.update']);
         $id = (int) $id;
 
-        $record = $this->{{smallname}}Repository->updateWithIdAndInput($id,
+        $record = $this->{{smallnameSnake}}Repository->updateWithIdAndInput($id,
             $request->all());
 
         return response()->json(['item' => $record]);
@@ -140,6 +140,6 @@ class {{name}}Controller extends Controller
         exit;
 
         /* $id = (int) $id;
-        $this->{{smallname}}Repository->destroy($id); */
+        $this->{{smallnameSnake}}Repository->destroy($id); */
     }
 }

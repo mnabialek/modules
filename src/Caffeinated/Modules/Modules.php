@@ -150,7 +150,7 @@ class Modules implements Countable
 	 */
 	public function exists($slug)
 	{
-		$slug = strtolower($slug);
+		// $slug = strtolower($slug);
 
 		return in_array($slug, $this->getAllSlugs());
 	}

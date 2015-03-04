@@ -109,7 +109,7 @@ class ModuleMakeHandler
     public function fire(Command $console, $slug)
     {
         $this->console = $console;
-        $this->slug = strtolower($slug);
+        $this->slug = Str::studly($slug);
         $this->name = Str::studly($slug);
 
         if ($this->module->exists($this->slug)) {
@@ -259,6 +259,7 @@ class ModuleMakeHandler
                 '{{name}}',
                 '{{namespace}}',
                 '{{smallname}}',
+                '{{smallnameSnake}}',
                 '{{className}}',
                 '{{moduleName}}',
                 '{{snake_case}}'
@@ -268,6 +269,7 @@ class ModuleMakeHandler
                 $this->name,
                 $this->module->getNamespace(),
                 strtolower($this->name),
+                lcfirst($this->name),
                 $this->name . 'Request',
                 $this->name,
                 snake_case($this->name)

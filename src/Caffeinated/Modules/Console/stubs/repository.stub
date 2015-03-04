@@ -19,11 +19,11 @@ class {{name}}Repository extends AbstractRepository
      * Repository constructor
      *
      * @param Container $app
-     * @param {{name}} ${{smallname}}
+     * @param {{name}} ${{smallnameSnake}}
      */
-    public function __construct(Container $app, {{name}} ${{smallname}})
+    public function __construct(Container $app, {{name}} ${{smallnameSnake}})
     {
-        parent::__construct($app,  ${{smallname}});
+        parent::__construct($app,  ${{smallnameSnake}});
     }
 
     /**
